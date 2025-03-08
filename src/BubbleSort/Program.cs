@@ -41,18 +41,18 @@ static int BubbleSort(int[] array) // O(n^2)
     var swapCount = 0;
     for (var i = 0; i < array.Length; i++) // O(n)
     {
-        var swapped = false;
+        var hasSwapped = false;
         for (var j = 0; j < array.Length - 1 - i; j++) // O(n)
         {
             if (array[j] > array[j + 1])
             {
                 Swap(array, j, j + 1);
-                swapped = true;
+                hasSwapped = true;
                 swapCount++;
             }
         }
 
-        if (!swapped)
+        if (!hasSwapped)
         {
             break;
         }
@@ -61,13 +61,13 @@ static int BubbleSort(int[] array) // O(n^2)
     return swapCount;
 }
 
-static void Swap(int[] array, int i, int j)
+static void Swap(int[] array, int firstIndex, int secondIndex)
 {
     // Usando tupla implícita para trocar valores
-    (array[j], array[i]) = (array[i], array[j]);
+    (array[secondIndex], array[firstIndex]) = (array[firstIndex], array[secondIndex]);
 
     //// Usando variável temporária (forma tradicional)
-    //int temp = array[i];
-    //array[i] = array[j];
-    //array[j] = temp;
+    //int temp = array[firstIndex];
+    //array[firstIndex] = array[secondIndex];
+    //array[secondIndex] = temp;
 }
