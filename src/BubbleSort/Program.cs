@@ -6,6 +6,7 @@ PrintArray(array);
 
 Console.WriteLine("Array ordenado:");
 int swapCount = BubbleSort(array);
+
 PrintArray(array);
 Console.WriteLine($"Total de trocas: {swapCount}");
 
@@ -32,11 +33,10 @@ static void PrintArray(int[] array)
         }
     }
 
-    Console.WriteLine("]");
-    Console.WriteLine();
+    Console.WriteLine($"]{Environment.NewLine}");
 }
 
-static int BubbleSort(int[] array) // O(n^2)
+static int BubbleSort(int[] array) // O(n^2) - Quadrática
 {
     var swapCount = 0;
     for (var i = 0; i < array.Length; i++) // O(n)
@@ -63,7 +63,7 @@ static int BubbleSort(int[] array) // O(n^2)
 
 static void Swap(int[] array, int firstIndex, int secondIndex)
 {
-    // Usando tupla implícita para trocar valores
+    // Usando tupla com tipo inferido para trocar valores
     (array[secondIndex], array[firstIndex]) = (array[firstIndex], array[secondIndex]);
 
     //// Usando variável temporária (forma tradicional)

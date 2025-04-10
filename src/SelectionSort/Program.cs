@@ -9,10 +9,10 @@ PrintArray(array);
 Console.WriteLine("Array ordenado:");
 int swapCount = SelectionSort(array);
 PrintArray(array);
+
 Console.WriteLine($"Total de trocas: {swapCount}");
 
 return;
-
 
 static void FillArray(Element[] array)
 {
@@ -35,11 +35,10 @@ static void PrintArray(Element[] array)
         }
     }
 
-    Console.WriteLine("]");
-    Console.WriteLine();
+    Console.WriteLine($"]{Environment.NewLine}");
 }
 
-static int SelectionSort(Element[] array) // O(n^2)
+static int SelectionSort(Element[] array) // O(n^2) - Quadrática
 {
     var swapCount = 0;
     for (var i = 0; i < array.Length - 1; i++) // O(n)
