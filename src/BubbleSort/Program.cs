@@ -39,6 +39,18 @@ static void PrintArray(int[] array)
 static int BubbleSort(int[] array) // O(n^2) - Quadrática
 {
     var swapCount = 0;
+
+    static void Swap(int[] array, int firstIndex, int secondIndex)
+    {
+        // Usando tupla com tipo inferido para trocar valores
+        (array[secondIndex], array[firstIndex]) = (array[firstIndex], array[secondIndex]);
+
+        //// Usando variável temporária (forma tradicional)
+        //int temp = array[firstIndex];
+        //array[firstIndex] = array[secondIndex];
+        //array[secondIndex] = temp;
+    }
+
     for (var i = 0; i < array.Length; i++) // O(n)
     {
         var hasSwapped = false;
@@ -59,15 +71,4 @@ static int BubbleSort(int[] array) // O(n^2) - Quadrática
     }
 
     return swapCount;
-}
-
-static void Swap(int[] array, int firstIndex, int secondIndex)
-{
-    // Usando tupla com tipo inferido para trocar valores
-    (array[secondIndex], array[firstIndex]) = (array[firstIndex], array[secondIndex]);
-
-    //// Usando variável temporária (forma tradicional)
-    //int temp = array[firstIndex];
-    //array[firstIndex] = array[secondIndex];
-    //array[secondIndex] = temp;
 }
