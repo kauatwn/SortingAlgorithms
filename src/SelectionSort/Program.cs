@@ -41,6 +41,12 @@ static void PrintArray(Element[] array)
 static int SelectionSort(Element[] array) // O(n^2) - Quadrática
 {
     var swapCount = 0;
+
+    static void Swap(Element[] array, int firstIndex, int secondIndex)
+    {
+        (array[secondIndex], array[firstIndex]) = (array[firstIndex], array[secondIndex]);
+    }
+
     for (var i = 0; i < array.Length - 1; i++) // O(n)
     {
         int minIndex = i;
@@ -60,9 +66,4 @@ static int SelectionSort(Element[] array) // O(n^2) - Quadrática
     }
 
     return swapCount;
-}
-
-static void Swap(Element[] array, int firstIndex, int secondIndex)
-{
-    (array[secondIndex], array[firstIndex]) = (array[firstIndex], array[secondIndex]);
 }
