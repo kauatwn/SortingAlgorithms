@@ -5,10 +5,10 @@ Console.WriteLine("Array gerado:");
 PrintArray(array);
 
 Console.WriteLine("Array ordenado:");
-int swapCount = InsertionSort(array);
+int shiftCount = InsertionSort(array);
 PrintArray(array);
 
-Console.WriteLine($"Total de trocas: {swapCount}");
+Console.WriteLine($"Total de deslocamentos à direita: {shiftCount}");
 
 return;
 
@@ -38,21 +38,26 @@ static void PrintArray(int[] array)
 
 static int InsertionSort(int[] array) // O(n^2) - Quadrática
 {
-    var swapCount = 0;
+    var shiftCount = 0;
     for (var i = 1; i < array.Length; i++) // O(n)
     {
         int current = array[i];
-        int j = i - 1;
+        int previousIndex = i - 1;
 
-        while (j >= 0 && array[j] > current) // O(n)
+        while (previousIndex >= 0 && array[previousIndex] > current) // O(n)
         {
-            array[j + 1] = array[j];
-            j--;
-            swapCount++;
+            ShiftRight(array, previousIndex);
+            previousIndex--;
+            shiftCount++;
         }
 
-        array[j + 1] = current;
+        array[previousIndex + 1] = current;
     }
 
-    return swapCount;
+    return shiftCount;
+
+    static void ShiftRight(int[] array, int previousIndex)
+    {
+        array[previousIndex + 1] = array[previousIndex];
+    }
 }
