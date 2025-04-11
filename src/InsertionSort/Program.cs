@@ -39,12 +39,12 @@ static void PrintArray(int[] array)
 static int InsertionSort(int[] array) // O(n^2) - Quadrática
 {
     var shiftCount = 0;
-    for (var i = 1; i < array.Length; i++) // O(n)
+    for (var i = 1; i < array.Length; i++)
     {
         int current = array[i];
         int previousIndex = i - 1;
 
-        while (previousIndex >= 0 && array[previousIndex] > current) // O(n)
+        while (previousIndex >= 0 && array[previousIndex] > current)
         {
             ShiftRight(array, previousIndex);
             previousIndex--;

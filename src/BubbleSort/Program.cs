@@ -39,10 +39,10 @@ static void PrintArray(int[] array)
 static int BubbleSort(int[] array) // O(n^2) - Quadrática
 {
     var swapCount = 0;
-    for (var pass = 0; pass < array.Length; pass++) // O(n)
+    for (var pass = 0; pass < array.Length; pass++)
     {
         var hasSwapped = false;
-        for (var compareIndex = 0; compareIndex < array.Length - 1 - pass; compareIndex++) // O(n)
+        for (var compareIndex = 0; compareIndex < array.Length - 1 - pass; compareIndex++)
         {
             if (array[compareIndex] > array[compareIndex + 1])
             {

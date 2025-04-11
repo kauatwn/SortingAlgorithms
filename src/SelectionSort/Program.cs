@@ -42,10 +42,10 @@ static int SelectionSort(Element[] array) // O(n^2) - Quadrática
 {
     var swapCount = 0;
 
-    for (var currentPosition = 0; currentPosition < array.Length - 1; currentPosition++) // O(n)
+    for (var currentPosition = 0; currentPosition < array.Length - 1; currentPosition++)
     {
         int minIndex = currentPosition;
-        for (int comparisonIndex = currentPosition + 1; comparisonIndex < array.Length; comparisonIndex++) // O(n)
+        for (int comparisonIndex = currentPosition + 1; comparisonIndex < array.Length; comparisonIndex++)
         {
             if (array[comparisonIndex].Value < array[minIndex].Value)
             {

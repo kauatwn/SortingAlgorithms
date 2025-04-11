@@ -36,7 +36,7 @@ static void PrintArray(int[] array)
 }
 
 // Método MergeSort principal (chamada inicial)
-static void MergeSort(int[] array, int left, int right, int[] tempArray) // O(n log n) - Logarítmica
+static void MergeSort(int[] array, int left, int right, int[] tempArray) // O(n log n) - Log-linear
 {
     if (left < right)
     {
