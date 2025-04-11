@@ -56,6 +56,8 @@ static void MergeSort(int[] array, int left, int right, int[] tempArray) // O(n 
         Merge(array, left, middle, right, tempArray);
     }
 
+    return;
+
     // Método Merge otimizado (usa tempArray compartilhado)
     static void Merge(int[] array, int left, int middle, int right, int[] tempArray)
     {
