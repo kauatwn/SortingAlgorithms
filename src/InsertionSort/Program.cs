@@ -11,28 +11,13 @@ string[] array =
 ];
 
 Console.WriteLine("Array gerado:");
-PrintArray(array);
+Console.WriteLine($"[{string.Join(", ", array)}]{Environment.NewLine}");
 
 Console.WriteLine("Array ordenado:");
 InsertionSort(array);
-PrintArray(array);
+Console.WriteLine($"[{string.Join(", ", array)}]{Environment.NewLine}");
 
 return;
-
-static void PrintArray(string[] array)
-{
-    Console.Write("[");
-    for (var i = 0; i < array.Length; i++)
-    {
-        Console.Write($"{array[i]}");
-        if (i < array.Length - 1)
-        {
-            Console.Write(", ");
-        }
-    }
-
-    Console.WriteLine($"]{Environment.NewLine}");
-}
 
 static void InsertionSort(string[] array) // O(n^2) - Quadrática
 {
