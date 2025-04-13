@@ -1,32 +1,30 @@
-﻿var array = new int[10];
-FillArray(array);
+﻿using System.Globalization;
+
+string[] array =
+[
+    "Brasil", "Japão", "Canadá", "Austrália", "Argentina", "Índia", "Itália", "México", "África do Sul", "China",
+    "França", "Alemanha", "Rússia", "Reino Unido", "Espanha", "Portugal", "Egito", "Nigéria", "Coreia do Sul",
+    "Tailândia", "Vietnã", "Indonésia", "Turquia", "Países Baixos", "Bélgica", "Suíça", "Suécia", "Noruega",
+    "Dinamarca", "Finlândia", "Polônia", "Ucrânia", "Grécia", "Colômbia", "Peru", "Chile", "Venezuela", "Cuba",
+    "Costa Rica", "Panamá", "Equador", "Bolívia", "Paraguai", "Uruguai", "Nova Zelândia", "Filipinas", "Malásia",
+    "Singapura", "Israel", "Arábia Saudita", "Irã", "Iraque"
+];
 
 Console.WriteLine("Array gerado:");
 PrintArray(array);
 
 Console.WriteLine("Array ordenado:");
-int shiftCount = InsertionSort(array);
+InsertionSort(array);
 PrintArray(array);
-
-Console.WriteLine($"Total de deslocamentos à direita: {shiftCount}");
 
 return;
 
-static void FillArray(int[] array)
-{
-    var random = new Random();
-    for (var i = 0; i < array.Length; i++)
-    {
-        array[i] = random.Next(0, 100);
-    }
-}
-
-static void PrintArray(int[] array)
+static void PrintArray(string[] array)
 {
     Console.Write("[");
     for (var i = 0; i < array.Length; i++)
     {
-        Console.Write($"{array[i]:D2}");
+        Console.Write($"{array[i]}");
         if (i < array.Length - 1)
         {
             Console.Write(", ");
@@ -36,27 +34,28 @@ static void PrintArray(int[] array)
     Console.WriteLine($"]{Environment.NewLine}");
 }
 
-static int InsertionSort(int[] array) // O(n^2) - Quadrática
+static void InsertionSort(string[] array) // O(n^2) - Quadrática
 {
-    var shiftCount = 0;
+    var comparer = StringComparer.Create(new CultureInfo("pt-BR"), 
+        CompareOptions.IgnoreCase | CompareOptions.IgnoreNonSpace);
+
     for (var i = 1; i < array.Length; i++)
     {
-        int current = array[i];
+        string currentValue = array[i];
         int previousIndex = i - 1;
 
-        while (previousIndex >= 0 && array[previousIndex] > current)
+        while (previousIndex >= 0 && comparer.Compare(array[previousIndex], currentValue) > 0)
         {
             ShiftRight(array, previousIndex);
             previousIndex--;
-            shiftCount++;
         }
 
-        array[previousIndex + 1] = current;
+        array[previousIndex + 1] = currentValue;
     }
 
-    return shiftCount;
+    return;
 
-    static void ShiftRight(int[] array, int previousIndex)
+    static void ShiftRight(string[] array, int previousIndex)
     {
         array[previousIndex + 1] = array[previousIndex];
     }
