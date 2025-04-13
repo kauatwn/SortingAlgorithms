@@ -1,13 +1,17 @@
-﻿var array = new int[10];
+﻿using System.Diagnostics;
+
+var array = new int[1_000_000];
 var tempArray = new int[array.Length];
 FillArray(array);
 
-Console.WriteLine("Array gerado:");
-PrintArray(array);
+Console.WriteLine($"Iniciando ordenação de um array com {array.Length:N0} elementos");
 
-Console.WriteLine("Array ordenado:");
+var stopwatch = Stopwatch.StartNew();
 MergeSort(array, 0, array.Length - 1, tempArray);
-PrintArray(array);
+stopwatch.Stop();
+
+Console.WriteLine($"{Environment.NewLine}Ordenação concluída com sucesso!");
+Console.WriteLine($"Tempo total de execução: {stopwatch.ElapsedMilliseconds:N0}ms");
 
 return;
 
@@ -16,23 +20,8 @@ static void FillArray(int[] array)
     var random = new Random();
     for (var i = 0; i < array.Length; i++)
     {
-        array[i] = random.Next(0, 100);
+        array[i] = random.Next(0, 10_000_000);
     }
-}
-
-static void PrintArray(int[] array)
-{
-    Console.Write("[");
-    for (var i = 0; i < array.Length; i++)
-    {
-        Console.Write($"{array[i]:D2}");
-        if (i < array.Length - 1)
-        {
-            Console.Write(", ");
-        }
-    }
-
-    Console.WriteLine($"]{Environment.NewLine}");
 }
 
 // Método MergeSort principal (chamada inicial)
