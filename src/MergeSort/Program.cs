@@ -71,18 +71,18 @@ static void MergeSort(int[] array, int left, int right, int[] tempArray) // O(n 
         int mergePosition = left;
 
         // Copia a região a ser mesclada para tempArray
-        Array.Copy(array, left, tempArray, left, right - left + 1);
+        Array.Copy(array, left, tempArray, left, middle - left + 1);
 
         // Combina os subarrays em ordem
         while (leftIndex <= middle && rightIndex <= right)
         {
-            if (tempArray[leftIndex] <= tempArray[rightIndex])
+            if (tempArray[leftIndex] <= array[rightIndex])
             {
                 array[mergePosition++] = tempArray[leftIndex++];
             }
             else
             {
-                array[mergePosition++] = tempArray[rightIndex++];
+                array[mergePosition++] = array[rightIndex++];
             }
         }
 
