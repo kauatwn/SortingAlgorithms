@@ -4,13 +4,13 @@ var array = new int[1_000_000];
 var tempArray = new int[array.Length];
 FillArray(array);
 
-Console.WriteLine($"Iniciando ordenação de um array com {array.Length:N0} elementos");
+Console.WriteLine($"Iniciando ordenação de um array com {array.Length:N0} elementos{Environment.NewLine}");
 
 var stopwatch = Stopwatch.StartNew();
-MergeSort(array, 0, array.Length - 1, tempArray);
+MergeSort(array, tempArray, 0, array.Length - 1);
 stopwatch.Stop();
 
-Console.WriteLine($"{Environment.NewLine}Ordenação concluída com sucesso!");
+Console.WriteLine("Ordenação concluída com sucesso!");
 Console.WriteLine($"Tempo total de execução: {stopwatch.ElapsedMilliseconds:N0}ms");
 
 return;
@@ -25,7 +25,7 @@ static void FillArray(int[] array)
 }
 
 // Método MergeSort principal (chamada inicial)
-static void MergeSort(int[] array, int left, int right, int[] tempArray) // O(n log n) - Log-linear
+static void MergeSort(int[] array, int[] tempArray, int left, int right) // O(n log n) - Log-linear
 {
     if (left < right)
     {
@@ -36,19 +36,19 @@ static void MergeSort(int[] array, int left, int right, int[] tempArray) // O(n 
         int middle = left + (right - left) / 2;
 
         // Ordena a primeira metade do array (esquerda)
-        MergeSort(array, left, middle, tempArray);
+        MergeSort(array, tempArray, left, middle);
 
         // Ordena a segunda metade do array (direita)
-        MergeSort(array, middle + 1, right, tempArray);
+        MergeSort(array, tempArray, middle + 1, right);
 
         // Combina as duas metades
-        Merge(array, left, middle, right, tempArray);
+        Merge(array, tempArray, left, middle, right);
     }
 
     return;
 
     // Método Merge otimizado (usa tempArray compartilhado)
-    static void Merge(int[] array, int left, int middle, int right, int[] tempArray)
+    static void Merge(int[] array, int[] tempArray, int left, int middle, int right)
     {
         // Índice do subarray esquerdo
         int leftIndex = left;
