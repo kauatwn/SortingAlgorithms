@@ -66,13 +66,9 @@ static void MergeSort(int[] array, int[] tempArray, int left, int right) // O(n 
         while (leftIndex <= middle && rightIndex <= right)
         {
             if (tempArray[leftIndex] <= array[rightIndex])
-            {
                 array[mergePosition++] = tempArray[leftIndex++];
-            }
             else
-            {
                 array[mergePosition++] = array[rightIndex++];
-            }
         }
 
         // Copia os elementos restantes (se houver)

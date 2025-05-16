@@ -69,20 +69,14 @@ static void QuickSort(int[] array, int left, int right)
                 rightIndex--;
             } while (array[rightIndex] > pivot);
 
-            // Verifica se os índices se cruzaram
-            if (leftIndex >= rightIndex)
-            {
-                // Retorna o índice do pivô
-                return rightIndex;
-            }
+            // Verifica se os índices se cruzaram e retorna o índice do pivô
+            if (leftIndex >= rightIndex) return rightIndex;
 
             // Troca os elementos se os índices não se cruzaram
             Swap(array, leftIndex, rightIndex);
         }
 
-        static void Swap(int[] array, int firstIndex, int secondIndex)
-        {
+        static void Swap(int[] array, int firstIndex, int secondIndex) =>
             (array[secondIndex], array[firstIndex]) = (array[firstIndex], array[secondIndex]);
-        }
     }
 }

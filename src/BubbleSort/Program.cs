@@ -31,10 +31,7 @@ static void PrintArray(int[] array)
     for (var i = 0; i < array.Length; i++)
     {
         sb.Append($"{array[i]:D2}");
-        if (i < array.Length - 1)
-        {
-            sb.Append(", ");
-        }
+        if (i < array.Length - 1) sb.Append(", ");
     }
 
     sb.AppendLine($"]{Environment.NewLine}");
@@ -57,22 +54,11 @@ static int BubbleSort(int[] array) // O(n^2) - Quadrática
             }
         }
 
-        if (!hasSwapped)
-        {
-            break;
-        }
+        if (!hasSwapped) break;
     }
 
     return swapCount;
 
-    static void Swap(int[] array, int firstIndex, int secondIndex)
-    {
-        // Usando tupla com tipo inferido para trocar valores
+    static void Swap(int[] array, int firstIndex, int secondIndex) =>
         (array[secondIndex], array[firstIndex]) = (array[firstIndex], array[secondIndex]);
-
-        //// Usando variável temporária (forma tradicional)
-        //int temp = array[firstIndex];
-        //array[firstIndex] = array[secondIndex];
-        //array[secondIndex] = temp;
-    }
 }

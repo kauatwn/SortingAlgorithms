@@ -21,7 +21,7 @@ return;
 
 static void InsertionSort(string[] array) // O(n^2) - Quadrática
 {
-    var comparer = StringComparer.Create(new CultureInfo("pt-BR"), 
+    var comparer = StringComparer.Create(new CultureInfo("pt-BR"),
         CompareOptions.IgnoreCase | CompareOptions.IgnoreNonSpace);
 
     for (var i = 1; i < array.Length; i++)
@@ -40,8 +40,5 @@ static void InsertionSort(string[] array) // O(n^2) - Quadrática
 
     return;
 
-    static void ShiftRight(string[] array, int previousIndex)
-    {
-        array[previousIndex + 1] = array[previousIndex];
-    }
+    static void ShiftRight(string[] array, int previousIndex) => array[previousIndex + 1] = array[previousIndex];
 }
