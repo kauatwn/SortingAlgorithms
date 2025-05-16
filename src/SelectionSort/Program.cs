@@ -1,4 +1,5 @@
-﻿using SelectionSort;
+﻿using System.Text;
+using SelectionSort;
 
 var array = new Element[10];
 FillArray(array);
@@ -25,17 +26,20 @@ static void FillArray(Element[] array)
 
 static void PrintArray(Element[] array)
 {
-    Console.Write("[");
+    StringBuilder sb = new();
+
+    sb.Append('[');
     for (var i = 0; i < array.Length; i++)
     {
-        Console.Write($"{array[i].Value:D2}({array[i].Id})");
+        sb.Append($"{array[i].Value:D2}({array[i].Id})");
         if (i < array.Length - 1)
         {
-            Console.Write(", ");
+            sb.Append(", ");
         }
     }
 
-    Console.WriteLine($"]{Environment.NewLine}");
+    sb.AppendLine($"]{Environment.NewLine}");
+    Console.Write(sb);
 }
 
 static int SelectionSort(Element[] array) // O(n^2) - Quadrática

@@ -1,4 +1,6 @@
-﻿var array = new int[10];
+﻿using System.Text;
+
+var array = new int[10];
 FillArray(array);
 
 Console.WriteLine("Array gerado:");
@@ -23,17 +25,20 @@ static void FillArray(int[] array)
 
 static void PrintArray(int[] array)
 {
-    Console.Write("[");
+    StringBuilder sb = new();
+
+    sb.Append('[');
     for (var i = 0; i < array.Length; i++)
     {
-        Console.Write($"{array[i]:D2}");
+        sb.Append($"{array[i]:D2}");
         if (i < array.Length - 1)
         {
-            Console.Write(", ");
+            sb.Append(", ");
         }
     }
 
-    Console.WriteLine($"]{Environment.NewLine}");
+    sb.AppendLine($"]{Environment.NewLine}");
+    Console.Write(sb);
 }
 
 static int BubbleSort(int[] array) // O(n^2) - Quadrática
