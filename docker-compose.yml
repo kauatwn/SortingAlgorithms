@@ -1,0 +1,35 @@
+services:
+  bubblesort:
+    build:
+      context: .
+      args:
+        PROJECT_NAME: BubbleSort
+    image: sortingalgorithms-bubblesort:dev
+
+  insertionsort:
+    build:
+      context: .
+      args:
+        PROJECT_NAME: InsertionSort
+    image: sortingalgorithms-insertionsort:dev
+
+  mergesort:
+    build:
+      context: .
+      args:
+        PROJECT_NAME: MergeSort
+    image: sortingalgorithms-mergesort:dev
+
+  quicksort:
+    build:
+      context: .
+      args:
+        PROJECT_NAME: QuickSort
+    image: sortingalgorithms-quicksort:dev
+
+  selectionsort:
+    build:
+      context: .
+      args:
+        PROJECT_NAME: SelectionSort
+    image: sortingalgorithms-selectionsort:dev
