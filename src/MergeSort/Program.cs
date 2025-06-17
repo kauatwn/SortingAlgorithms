@@ -6,7 +6,8 @@ FillArray(array);
 
 Console.WriteLine($"Iniciando ordenação de um array com {array.Length:N0} elementos{Environment.NewLine}");
 
-var stopwatch = Stopwatch.StartNew();
+Stopwatch stopwatch = new();
+stopwatch.Start();
 MergeSort(array, tempArray, 0, array.Length - 1);
 stopwatch.Stop();
 
@@ -17,7 +18,7 @@ return;
 
 static void FillArray(int[] array)
 {
-    var random = new Random();
+    Random random = new();
     for (var i = 0; i < array.Length; i++)
     {
         array[i] = random.Next(0, 10_000_000);
@@ -66,9 +67,13 @@ static void MergeSort(int[] array, int[] tempArray, int left, int right) // O(n 
         while (leftIndex <= middle && rightIndex <= right)
         {
             if (tempArray[leftIndex] <= array[rightIndex])
+            {
                 array[mergePosition++] = tempArray[leftIndex++];
+            }
             else
+            {
                 array[mergePosition++] = array[rightIndex++];
+            }
         }
 
         // Copia os elementos restantes (se houver)

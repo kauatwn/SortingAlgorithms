@@ -17,7 +17,7 @@ return;
 
 static void FillArray(Element[] array)
 {
-    var random = new Random();
+    Random random = new();
     for (var i = 0; i < array.Length; i++)
     {
         array[i] = new Element(random.Next(0, 10), i);
@@ -32,7 +32,10 @@ static void PrintArray(Element[] array)
     for (var i = 0; i < array.Length; i++)
     {
         sb.Append($"{array[i].Value:D2}({array[i].Id})");
-        if (i < array.Length - 1) sb.Append(", ");
+        if (i < array.Length - 1)
+        {
+            sb.Append(", ");
+        }
     }
 
     sb.AppendLine($"]{Environment.NewLine}");
@@ -48,7 +51,10 @@ static int SelectionSort(Element[] array) // O(n^2) - Quadrática
         int minIndex = currentPosition;
         for (int comparisonIndex = currentPosition + 1; comparisonIndex < array.Length; comparisonIndex++)
         {
-            if (array[comparisonIndex].Value < array[minIndex].Value) minIndex = comparisonIndex;
+            if (array[comparisonIndex].Value < array[minIndex].Value)
+            {
+                minIndex = comparisonIndex;
+            }
         }
 
         if (minIndex != currentPosition)

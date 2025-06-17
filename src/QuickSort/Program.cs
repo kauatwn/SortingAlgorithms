@@ -4,7 +4,8 @@ var array = new int[1_000_000];
 FillArray(array);
 Console.WriteLine($"Iniciando ordenação de um array com {array.Length:N0} elementos{Environment.NewLine}");
 
-var stopwatch = Stopwatch.StartNew();
+Stopwatch stopwatch = new();
+stopwatch.Start();
 QuickSort(array, 0, array.Length - 1);
 stopwatch.Stop();
 
@@ -15,7 +16,7 @@ return;
 
 static void FillArray(int[] array)
 {
-    var random = new Random();
+    Random random = new();
     for (var i = 0; i < array.Length; i++)
     {
         array[i] = random.Next(0, 10_000_000);
@@ -70,7 +71,10 @@ static void QuickSort(int[] array, int left, int right)
             } while (array[rightIndex] > pivot);
 
             // Verifica se os índices se cruzaram e retorna o índice do pivô
-            if (leftIndex >= rightIndex) return rightIndex;
+            if (leftIndex >= rightIndex)
+            {
+                return rightIndex;
+            }
 
             // Troca os elementos se os índices não se cruzaram
             Swap(array, leftIndex, rightIndex);

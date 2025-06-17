@@ -54,7 +54,10 @@ static int BubbleSort(int[] array) // O(n^2) - Quadrática
             }
         }
 
-        if (!hasSwapped) break;
+        if (!hasSwapped)
+        {
+            break;
+        }
     }
 
     return swapCount;
