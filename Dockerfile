@@ -28,5 +28,9 @@ FROM base AS final
 ARG PROJECT_NAME
 ENV PROJECT_NAME=${PROJECT_NAME}
 WORKDIR /app
+USER root
 COPY --from=publish /app/publish/${PROJECT_NAME} .
-ENTRYPOINT dotnet ${PROJECT_NAME}.dll
+COPY entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
+USER $APP_UID
+ENTRYPOINT ["/app/entrypoint.sh"]
