@@ -80,7 +80,9 @@ static void QuickSort(int[] array, int left, int right)
             Swap(array, leftIndex, rightIndex);
         }
 
-        static void Swap(int[] array, int firstIndex, int secondIndex) =>
+        static void Swap(int[] array, int firstIndex, int secondIndex)
+        {
             (array[secondIndex], array[firstIndex]) = (array[firstIndex], array[secondIndex]);
+        }
     }
 }

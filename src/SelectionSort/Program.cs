@@ -66,6 +66,8 @@ static int SelectionSort(Element[] array) // O(n^2) - Quadrática
 
     return swapCount;
 
-    static void Swap(Element[] array, int firstIndex, int secondIndex) =>
+    static void Swap(Element[] array, int firstIndex, int secondIndex)
+    {
         (array[secondIndex], array[firstIndex]) = (array[firstIndex], array[secondIndex]);
+    }
 }

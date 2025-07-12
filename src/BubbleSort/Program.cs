@@ -16,7 +16,7 @@ return;
 
 static void FillArray(int[] array)
 {
-    var random = new Random();
+    Random random = new();
     for (var i = 0; i < array.Length; i++)
     {
         array[i] = random.Next(0, 100);
@@ -62,6 +62,8 @@ static int BubbleSort(int[] array) // O(n^2) - Quadrática
 
     return swapCount;
 
-    static void Swap(int[] array, int firstIndex, int secondIndex) =>
+    static void Swap(int[] array, int firstIndex, int secondIndex)
+    {
         (array[secondIndex], array[firstIndex]) = (array[firstIndex], array[secondIndex]);
+    }
 }

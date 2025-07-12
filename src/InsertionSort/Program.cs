@@ -40,5 +40,8 @@ static void InsertionSort(string[] array) // O(n^2) - Quadrática
 
     return;
 
-    static void ShiftRight(string[] array, int previousIndex) => array[previousIndex + 1] = array[previousIndex];
+    static void ShiftRight(string[] array, int previousIndex)
+    {
+        array[previousIndex + 1] = array[previousIndex];
+    }
 }
