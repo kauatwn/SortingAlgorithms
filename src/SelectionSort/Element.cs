@@ -1,7 +1,3 @@
 ﻿namespace SelectionSort;
 
-internal readonly struct Element(int value, int id)
-{
-    public int Value { get; } = value;
-    public int Id { get; } = id;
-}
+internal readonly record struct Element(int Value, int Id);
